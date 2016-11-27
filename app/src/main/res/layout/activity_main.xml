@@ -22,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="escribe el texto...."
-        android:textSize="10dp"/>
+        android:textSize="15dp"
+        android:textColor="@color/azul_google"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AÑADIR FICH. EXT."
+            android:onClick="escribirFicheroExterno"
 
             />
     </LinearLayout>
@@ -89,14 +91,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="El contenido del fichero es:"/>
+        android:text="El contenido del fichero es:"
+        android:layout_marginBottom="10dp"/>
 
-    <TextView android:id="@+id/consola"
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:textSize="15dp"
         android:background="@drawable/fondo_textview"
-        android:textColor="@color/verde_google"/>
+        android:textColor="@color/verde_google">
+
+        <TextView android:id="@+id/consola"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColor="@color/azul_google"
+            android:layout_margin="20dp" />
+
+    </ScrollView>
+
+
 
 </LinearLayout>
