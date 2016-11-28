@@ -43,11 +43,9 @@ public class MainActivity extends AppCompatActivity {
             OutputStreamWriter salida = new OutputStreamWriter(openFileOutput("ejercicio1.txt",
                     Context.MODE_APPEND));
 
-
             String cadena = text.getText().toString() + "\n";
 
             salida.write(cadena);
-
 
             salida.close();
             
@@ -72,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
             while ((linea = entrada.readLine()) != null){
                 consola.append(linea + "\n");
             }
-
 
             entrada.close();
 
@@ -165,9 +162,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //MÉTODO PARA BORRAR UN FICHERO DE LA MEMORIA EXTERNA - SD
+    public void borrarFicheroExterno(View v){
+
+        //COMPROBAMOS EL ESTADO DE LA MEMORIA EXTERNA - SD
+        String estado = Environment.getExternalStorageState();
+        if(estado.equals(Environment.MEDIA_MOUNTED) || estado.equals(Environment.MEDIA_MOUNTED_READ_ONLY)) {
+
+            Context context = getApplicationContext();
+            File rutaFichero = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+            File file = new File(rutaFichero.getAbsolutePath(), "fichero1.txt");
+
+            if(file.delete())
+                mostrarPanelError("Fichero borrado correctamente");
+            else
+                mostrarPanelError("No se pudo borrar el fichero");
+
+        }
+
+    }
+
+    //MÉTODO PARA BORRAR UN FICHERO DE LA MEMORIA INTERNA
+    public void borrarFicheroInterno(View v){
+
+        Context context = getApplicationContext();
+
+        if(context.deleteFile("ejercicio1.txt"))
+            mostrarPanelError("Fichero borrado correctamente");
+        else
+            mostrarPanelError("No se pudo borrar el fichero");
+    }
 
 
-    
     public void mostrarPanelError(String msg){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }

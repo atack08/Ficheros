@@ -81,12 +81,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BORRAR FICH. INT."/>
+            android:text="BORRAR FICH. INT."
+            android:onClick="borrarFicheroInterno"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BORRAR FICH. EXT."/>
+            android:text="BORRAR FICH. EXT."
+            android:onClick="borrarFicheroExterno"/>
 
     </LinearLayout>
 
