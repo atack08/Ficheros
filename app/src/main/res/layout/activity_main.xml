@@ -63,7 +63,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LEER FICH. EXT."
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:id="@+id/button"
+            android:onClick="leerFicheroExterno"/>
 
         <Button
             android:layout_width="wrap_content"
