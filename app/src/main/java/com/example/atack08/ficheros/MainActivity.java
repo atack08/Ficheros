@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
@@ -191,6 +192,29 @@ public class MainActivity extends AppCompatActivity {
             mostrarPanelError("Fichero borrado correctamente");
         else
             mostrarPanelError("No se pudo borrar el fichero");
+    }
+
+    //LEE EL CONTENIDO DEL FICHERO EN FORMA DE RECURSO
+    public void leerRecursoFicheros(View v){
+
+        try {
+            InputStream entrada = getResources().openRawResource(R.raw.prueba_raw);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(entrada));
+
+            consola.setText("");
+
+            String linea;
+            while ((linea = reader.readLine()) != null){
+                consola.append(linea + "\n");
+            }
+
+            entrada.close();
+
+        } catch (FileNotFoundException e) {
+            mostrarPanelError(e.getLocalizedMessage());
+        } catch (IOException e) {
+            mostrarPanelError(e.getLocalizedMessage());
+        }
     }
 
 
