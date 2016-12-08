@@ -11,110 +11,23 @@
     tools:context="com.example.atack08.ficheros.MainActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contenido a escribir:"
-        android:textStyle="bold"
-        android:textSize="15dp"/>
-
-    <EditText android:id="@+id/texto"
+    <Button android:id="@+id/botonEjercicio1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="escribe el texto...."
-        android:textSize="15dp"
-        android:textColor="@color/azul_google"/>
+        android:text="Ejercicio 1"
+        android:onClick="linkActividades"/>
 
-    <LinearLayout
+    <Button android:id="@+id/botonEjercicio2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AÑADIR FICH. INT."
-            android:id="@+id/botonFichInt"
-            android:onClick="escribirEnFichero"
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AÑADIR FICH. EXT."
-            android:onClick="escribirFicheroExterno"
-
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LEER FICH. INT."
-            android:layout_weight="1"
-            android:onClick="leerFichero"
-           />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LEER FICH. EXT."
-            android:layout_weight="1"
-            android:id="@+id/button"
-            android:onClick="leerFicheroExterno"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LEER RECURSO"
-            android:layout_weight="1"
-            android:onClick="leerRecursoFicheros"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BORRAR FICH. INT."
-            android:onClick="borrarFicheroInterno"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BORRAR FICH. EXT."
-            android:onClick="borrarFicheroExterno"/>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="El contenido del fichero es:"
-        android:layout_marginBottom="10dp"/>
+        android:text="ejercicio 2"
+        android:onClick="linkActividades"/>
 
-
-    <ScrollView
+    <Button android:id="@+id/botonEjercicio3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/fondo_textview"
-        android:textColor="@color/verde_google">
-
-        <TextView android:id="@+id/consola"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:textColor="@color/azul_google"
-            android:layout_margin="20dp" />
-
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:text="ejercicio 3"
+        android:onClick="linkActividades"/>
 
 
 
