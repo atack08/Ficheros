@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this,Ejercicio1.class);
                 break;
             case R.id.botonEjercicio2:
-                //intent = new Intent(this,Ejercicio2.class);
+                intent = new Intent(this,Ejercicio2.class);
                 break;
             case R.id.botonEjercicio3:
-                // intent = new Intent(this,Ejercicio3.class);
+                intent = new Intent(this,Ejercicio3.class);
                 break;
 
         }

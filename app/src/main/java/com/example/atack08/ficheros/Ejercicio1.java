@@ -1,6 +1,7 @@
 package com.example.atack08.ficheros;
 
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -195,6 +198,8 @@ public class Ejercicio1 extends AppCompatActivity {
     public void leerRecursoFicheros(View v){
 
         try {
+            long t = getAssets().openFd("prueba_raw.txt").getLength();
+            System.out.println(t);
             InputStream entrada = getResources().openRawResource(R.raw.prueba_raw);
             BufferedReader reader = new BufferedReader(new InputStreamReader(entrada));
 
@@ -205,6 +210,7 @@ public class Ejercicio1 extends AppCompatActivity {
                 consola.append(linea + "\n");
             }
 
+            reader.close();
             entrada.close();
 
         } catch (FileNotFoundException e) {
