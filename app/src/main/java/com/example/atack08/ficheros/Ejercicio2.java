@@ -5,8 +5,13 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,6 +23,7 @@ public class Ejercicio2 extends AppCompatActivity {
 
     private ArrayList<Provincia> listaProvincias;
     private Spinner comboProvincias;
+    private WebView contenedorWeb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,9 @@ public class Ejercicio2 extends AppCompatActivity {
         comboProvincias = (Spinner)findViewById(R.id.comboP);
         comboProvincias.setAdapter(adaptador);
 
+        contenedorWeb = (WebView)findViewById(R.id.contenedorWeb);
+        WebSettings settings = contenedorWeb.getSettings();
+        settings.setJavaScriptEnabled(true);
 
     }
 
@@ -83,9 +92,18 @@ public class Ejercicio2 extends AppCompatActivity {
         String lat = String.valueOf(p.getLatitud());
         String lon = String.valueOf(p.getLongitud());
 
-        Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse("geo:"+ lat + "," + lon + "?z=0&q=" + lat + "," + lon + "("+ p.getNombre() +")"));
+        /*Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse("geo:"+ lat + "," + lon + "?z=0&q=" + lat + "," + lon + "("+ p.getNombre() +")"));
         intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
-        startActivity(intent);
+        startActivity(intent);*/
+
+        contenedorWeb.setWebViewClient(new WebViewClient());
+        contenedorWeb.setWebChromeClient(new WebChromeClient());
+        
+        String url = "https://maps.google.com/maps?ll=" + lat + "," + lon;
+
+        Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
+
+        contenedorWeb.loadUrl(url);
 
 
     }
